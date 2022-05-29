@@ -85,6 +85,12 @@ defmodule ElixirPractice.Accounts do
     |> Repo.update()
   end
 
+  def update_person(%Person{} = person, attrs) do
+    person
+    |> Person.changeset(attrs)
+    |> Repo.update()
+  end
+
   @doc """
   Deletes a user.
 
@@ -99,6 +105,10 @@ defmodule ElixirPractice.Accounts do
   """
   def delete_user(%User{} = user) do
     Repo.delete(user)
+  end
+
+  def delete_person(%Person{} = person) do
+    Repo.delete(person)
   end
 
   @doc """
